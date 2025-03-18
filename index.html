@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地铁风格主页</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        .metro-logo {
+            width: 150px;
+            height: 150px;
+            background: #ffcc00;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #111;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 204, 0, 0.9);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .metro-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .station {
+            width: 20px;
+            height: 20px;
+            background: #ffcc00;
+            border-radius: 50%;
+            margin: 0 10px;
+            position: relative;
+            animation: blink 1.5s infinite;
+        }
+
+        .station::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: #ffcc00;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .metro-map {
+            width: 80%;
+            max-width: 600px;
+            height: 10px;
+            background: #ffcc00;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .metro-map::before,
+        .metro-map::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffcc00;
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .metro-map::before {
+            left: -5px;
+        }
+
+        .metro-map::after {
+            right: -5px;
+        }
+
+        .metro-train {
+            width: 100px;
+            height: 20px;
+            background: #ffcc00;
+            position: absolute;
+            top: -5px;
+            left: 0;
+            animation: moveTrain 5s linear infinite;
+        }
+
+        @keyframes moveTrain {
+            0% {
+                left: -100px;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #111;
+            background: #ffcc00;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .button:hover {
+            background: #ffdd33;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="metro-logo">M</div>
+        <h1>欢迎来到地铁世界</h1>
+        <p>探索城市的地下脉络，感受速度与激情！</p>
+        <div class="metro-line">
+            <div class="station"></div>
+            <div class="station"></div>
+            <div class="station"></div>
+        </div>
+        <div class="metro-map">
+            <div class="metro-train"></div>
+        </div>
+        <button class="button">开始旅程</button>
+    </div>
+</body>
+</html>
